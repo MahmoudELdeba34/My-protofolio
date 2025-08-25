@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محمود أحمد | مطور Full Stack ومطور CRM</title>
+    <meta name="description" content="محمود أحمد - مطور Full Stack .NET ومطور CRM متخصص في Dynamics 365 وحلول المؤسسات">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b77b8;
+            --accent-color: #e53e3e;
+            --success-color: #38a169;
+            --light-color: #f7fafc;
+            --dark-color: #2d3748;
+            --text-color: #2d3748;
+            --text-light: #718096;
+            --bg-color: #ffffff;
+            --card-bg: #f8f9fa;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 12px;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3182ce;
+            --secondary-color: #2b77b8;
+            --light-color: #2d3748;
+            --dark-color: #f7fafc;
+            --text-color: #f7fafc;
+            --text-light: #a0aec0;
+            --bg-color: #1a202c;
+            --card-bg: #2d3748;
+            --border-color: #4a5568;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: rgba(26, 54, 93, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+        
+        .navbar-brand {
+            color: white !important;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: white !important;
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 8rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.05)" d="M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,224C672,235,768,181,864,160C960,139,1056,149,1152,165.3C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h2 {
+            font-size: clamp(1.25rem, 3vw, 2rem);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .hero .lead {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* Buttons */
+        .btn {
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            border: none;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(43, 119, 184, 0.3);
+            color: white;
+        }
+
+        .btn-outline-light {
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            color: white;
+            background: transparent;
+        }
+
+        .btn-outline-light:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            color: var(--text-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+            border-radius: 2px;
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-title {
+            color: var(--text-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .card-text {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        .skill-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+
+        .skill-item i {
+            color: var(--secondary-color);
+            margin-left: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-right: 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--secondary-color), var(--primary-color));
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-right: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            border: 3px solid var(--bg-color);
+            box-shadow: 0 0 0 3px var(--secondary-color);
+        }
+
+        .timeline-item h4 {
+            color: var(--text-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item h5 {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Project Badges */
+        .badge {
+            background-color: var(--secondary-color);
+            color: white;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Contact Cards */
+        .contact-card {
+            text-align: center;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-card i {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: white;
+            font-size: 1.25rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(43, 119, 184, 0.3);
+        }
+
+        /* Floating Elements */
+        .floating-btn {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .floating-btn.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .theme-switch, .language-switch {
+            position: fixed;
+            top: 120px;
+            left: 2rem;
+            z-index: 1000;
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 0.25rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .language-switch {
+            top: 180px;
+        }
+
+        .theme-switch .btn, .language-switch .btn {
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            border: none;
+            background: transparent;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .theme-switch .btn.active, .language-switch .btn.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* RTL/LTR Support */
+        [dir="ltr"] .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        [dir="ltr"] .timeline {
+            padding-left: 2rem;
+            padding-right: 0;
+        }
+        
+        [dir="ltr"] .timeline::before {
+            left: 0;
+            right: auto;
+        }
+        
+        [dir="ltr"] .timeline-item {
+            padding-left: 2rem;
+            padding-right: 0;
+        }
+        
+        [dir="ltr"] .timeline-item::before {
+            left: -6px;
+            right: auto;
+        }
+
+        [dir="ltr"] .skill-item i {
+            margin-right: 1rem;
+            margin-left: 0;
+        }
+
+        [dir="ltr"] .floating-btn {
+            right: 2rem;
+            left: auto;
+        }
+
+        [dir="ltr"] .theme-switch, [dir="ltr"] .language-switch {
+            right: 2rem;
+            left: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .theme-switch, .language-switch {
+                position: relative;
+                top: auto;
+                left: auto;
+                right: auto;
+                margin: 1rem auto;
+                display: block;
+                width: fit-content;
+            }
+            
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                bottom: 1rem;
+                left: 1rem;
+            }
+            
+            [dir="ltr"] .floating-btn {
+                right: 1rem;
+                left: auto;
+            }
+            
+            .hero {
+                padding: 5rem 0 4rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 3rem;
+            }
+
+            .navbar-nav {
+                background-color: rgba(26, 54, 93, 0.98);
+                border-radius: 8px;
+                padding: 1rem;
+                margin-top: 1rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Back to Top Button -->
+    <button class="floating-btn" id="backToTop" aria-label="العودة للأعلى">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Theme Switch -->
+    <div class="theme-switch">
+        <div class="btn-group">
+            <button class="btn" id="lightTheme" aria-label="المظهر الفاتح">
+                <i class="bi bi-sun-fill"></i>
+            </button>
+            <button class="btn" id="darkTheme" aria-label="المظهر الداكن">
+                <i class="bi bi-moon-fill"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Language Switch -->
+    <div class="language-switch">
+        <div class="btn-group">
+            <button class="btn active" id="arabicLang" aria-label="العربية">
+                AR
+            </button>
+            <button class="btn" id="englishLang" aria-label="English">
+                EN
+            </button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">محمود أحمد</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="قائمة التنقل">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">عني</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">المهارات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">الخبرة</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">المشاريع</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">التعليم</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">التواصل</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content text-center loading">
+                <h1>محمود أحمد محمود</h1>
+                <h2>مطور Full Stack .NET | مطور CRM</h2>
+                <p class="lead">
+                    أطور أنظمة عالية الأداء وقابلة للتوسع باستخدام .NET و Angular و React 
+                    وحلول CRM المتقدمة لتحقيق التحول الرقمي الفعال
+                </p>
+                <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="bi bi-envelope-fill"></i>
+                        تواصل معي
+                    </a>
+                    <a href="#projects" class="btn btn-outline-light">
+                        <i class="bi bi-code-square"></i>
+                        مشاهدة الأعمال
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title loading">عني</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card loading">
+                        <div class="card-body p-4">
+                            <p class="lead text-center mb-4">
+                                مطور Full Stack متمرس مع شغف بالتقنيات المتقدمة وحلول المؤسسات المبتكرة
+                            </p>
+                            <p class="mb-4">
+                                متخصص في تطوير حلول CRM وتطبيقات المؤسسات باستخدام Microsoft .NET Framework وحزمة التقنيات الحديثة. 
+                                أمتلك خبرة عملية في Dynamics 365 و Salesforce مع قدرة على بناء أنظمة قابلة للتوسع 
+                                وعالية الأداء تلبي احتياجات الأعمال المعقدة.
+                            </p>
+                            <p class="mb-4">
+                                حصلت على تدريب متقدم في معهد تكنولوجيا المعلومات (ITI) ومبادرة بناة مصر الرقمية (DEBI)، 
+                                مما مكنني من اكتساب معرفة عميقة بأفضل الممارسات في هندسة البرمجيات والتطوير السحابي.
+                            </p>
+                            
+                            <div class="row mt-5">
+                                <div class="col-md-4 mb-3">
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-geo-alt-fill me-2 text-primary"></i>
+                                        <span>الزقازيق، الشرقية، مصر</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-envelope-fill me-2 text-primary"></i>
+                                        <a href="mailto:mahmoudeldeba@gmail.com" class="text-decoration-none">
+                                            mahmoudeldeba@gmail.com
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-phone-fill me-2 text-primary"></i>
+                                        <a href="tel:+201019672937" class="text-decoration-none">
+                                            +20 101 967 2937
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" style="background-color: var(--light-color);">
+        <div class="container">
+            <h2 class="section-title loading">المهارات التقنية</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card loading">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <i class="bi bi-server me-2 text-primary"></i>
+                                Backend Development
+                            </h4>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>C#, ASP.NET Core</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Entity Framework</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Web API, MVC</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>SQL Server</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Node.js, Python</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card loading">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <i class="bi bi-code-square me-2 text-primary"></i>
+                                Frontend Development
+                            </h4>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>HTML5, CSS3, JS (ES6+)</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Angular, React</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>TypeScript</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Bootstrap, Tailwind</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Sass, Responsive Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card loading">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <i class="bi bi-gear-fill me-2 text-primary"></i>
+                                CRM Technologies
+                            </h4>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Dynamics 365 CRM</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Power Platform</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Salesforce Platform</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Custom Workflows</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Business Intelligence</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card loading">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <i class="bi bi-tools me-2 text-primary"></i>
+                                Tools & DevOps
+                            </h4>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Git, GitHub</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Visual Studio, VS Code</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Postman, Swagger</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Azure DevOps</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Docker, CI/CD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title loading">الخبرة المهنية</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="timeline">
+                        <div class="timeline-item loading">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>مهندس دعم فني</h4>
+                                    <h5><i class="bi bi-building me-2"></i>We Company, القاهرة</h5>
+                                    <p class="text-muted mb-3">
+                                        <i class="bi bi-calendar3 me-2"></i>
+                                        فبراير 2024 – أكتوبر 2024
+                                    </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="bi bi-arrow-left me-2 text-primary"></i>تقديم الدعم الفني المتخصص للعملاء</li>
+                                        <li><i class="bi bi-arrow-left me-2 text-primary"></i>حل المشاكل التقنية وتحسين الأداء</li>
+                                        <li><i class="bi bi-arrow-left me-2 text-primary"></i>التعاون مع فرق التطوير لتحسين المنتجات</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item loading">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>مرشد برمجي (هجين)</h4>
+                                    <h5><i class="bi bi-mortarboard me-2"></i>Route Academy</h5>
+                                    <p class="text-muted mb-3">
+                                        <i class="bi bi-calendar3 me-2"></i>
+                                        نوفمبر 2023 – أبريل 2024
+                                    </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="bi bi-arrow-left me-2 text-primary"></i>إرشاد الطلاب في تعلم تقنيات البرمجة الحديثة</li>
+                                        <li><i class="bi bi-arrow-left me-2 text-primary"></i>تدريس Frontend و Backend Development</li>
+                                        <li><i class="bi bi-arrow-left me-2 text-primary"></i>مراجعة المشاريع وتقديم التغذية الراجعة</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" style="background-color: var(--light-color);">
+        <div class="container">
+            <h2 class="section-title loading">المشاريع المميزة</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card loading h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-box-seam me-3 text-primary" style="font-size: 2rem;"></i>
+                                <h4 class="card-title mb-0">نظام إدارة المخزون (CRM Module)</h4>
+                            </div>
+                            <p class="card-text mb-3">
+                                مشروع تدريبي متقدم في Link - موديل مخصص ضمن Dynamics 365 CRM لإدارة 
+                                مستويات المخزون والموردين وأوامر الشراء بطريقة متكاملة وذكية.
+                            </p>
+                            <ul class="list-unstyled mb-4">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>تطوير سير عمل متقدم باستخدام Power Platform</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>تنفيذ منطق الأعمال بـ C# Plugins و Custom Workflows</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>بناء APIs قوية باستخدام ASP.NET Core</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>تطوير واجهات تفاعلية بـ Angular</li>
+                            </ul>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge">Dynamics 365</span>
+                                <span class="badge">Power Platform</span>
+                                <span class="badge">C# Plugins</span>
+                                <span class="badge">ASP.NET Core</span>
+                                <span class="badge">Angular</span>
+                                <span class="badge">Entity Framework</span>
+                            </div>
+                            <button class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-eye me-2"></i>عرض التفاصيل
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card loading h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-shop me-3 text-primary" style="font-size: 2rem;"></i>
+                                <h4 class="card-title mb-0">متجر إلكتروني شامل (MEAN Stack)</h4>
+                            </div>
+                            <p class="card-text mb-3">
+                                تطبيق متجر إلكتروني متكامل مع نظام إدارة المنتجات، سلة التسوق، 
+                                ومعالجة المدفوعات باستخدام MEAN Stack.
+                            </p>
+                            <ul class="list-unstyled mb-4">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>نظام مصادقة وترخيص آمن</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>إدارة المنتجات والفئات</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>تكامل مع بوابات الدفع</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>لوحة تحكم إدارية</li>
+                            </ul>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge">MongoDB</span>
+                                <span class="badge">Express.js</span>
+                                <span class="badge">Angular</span>
+                                <span class="badge">Node.js</span>
+                                <span class="badge">JWT</span>
+                            </div>
+                            <button class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-github me-2"></i>عرض الكود
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card loading h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-clipboard-check me-3 text-primary" style="font-size: 2rem;"></i>
+                                <h4 class="card-title mb-0">ExamO - نظام الامتحانات الإلكتروني</h4>
+                            </div>
+                            <p class="card-text mb-3">
+                                منصة امتحانات إلكترونية شاملة مع بيئة اختبار آمنة وأدوات تحليل النتائج المتقدمة.
+                            </p>
+                            <ul class="list-unstyled mb-4">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>نظام أمان متقدم لمنع الغش</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>تقارير وتحليلات شاملة</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>واجهة سهلة للطلاب والمدرسين</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>تصحيح تلقائي ذكي</li>
+                            </ul>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge">ASP.NET Core</span>
+                                <span class="badge">Entity Framework</span>
+                                <span class="badge">Angular</span>
+                                <span class="badge">SQL Server</span>
+                            </div>
+                            <button class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-play-circle me-2"></i>عرض توضيحي
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card loading h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-cup-hot me-3 text-primary" style="font-size: 2rem;"></i>
+                                <h4 class="card-title mb-0">موقع مطعم Yummy</h4>
+                            </div>
+                            <p class="card-text mb-3">
+                                منصة طلب طعام متجاوبة مع تصميم UI/UX حديث وتجربة مستخدم متميزة.
+                            </p>
+                            <ul class="list-unstyled mb-4">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>تصميم متجاوب وحديث</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>قائمة تفاعلية للوجبات</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>نظام حجز الطاولات</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>تحسين محركات البحث SEO</li>
+                            </ul>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="badge">HTML5</span>
+                                <span class="badge">CSS3</span>
+                                <span class="badge">JavaScript</span>
+                                <span class="badge">Bootstrap</span>
+                            </div>
+                            <button class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-globe me-2"></i>زيارة الموقع
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title loading">التعليم والشهادات</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card loading h-100">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="bi bi-mortarboard-fill me-2"></i>التعليم الأكاديمي</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-4">
+                                <h5 class="card-title">دبلومة التطوير المهني في CRM و BI</h5>
+                                <h6 class="text-primary">معهد تكنولوجيا المعلومات (ITI)</h6>
+                                <p class="text-muted mb-2">
+                                    <i class="bi bi-calendar3 me-2"></i>أكتوبر 2024 – أغسطس 2025
+                                </p>
+                                <p class="mb-3">
+                                    دبلومة متخصصة مدتها 9 أشهر تركز على تطوير حلول CRM وتقنيات Business Intelligence. 
+                                    يشمل التدريب ورش عمل عملية مع شركات رائدة مثل Link و Tech Lab London.
+                                </p>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge">CRM Development</span>
+                                    <span class="badge">Business Intelligence</span>
+                                    <span class="badge">Dynamics 365</span>
+                                </div>
+                            </div>
+                            
+                            <hr>
+                            
+                            <div>
+                                <h5 class="card-title">بكالوريوس علوم الحاسب</h5>
+                                <h6 class="text-primary">المعهد العالي للإدارة والمعلومات بالعبور</h6>
+                                <p class="text-muted mb-2">
+                                    <i class="bi bi-calendar3 me-2"></i>سبتمبر 2019 – يونيو 2023
+                                </p>
+                                <p class="mb-3">
+                                    تخرجت بتقدير جيد (الترتيب: الثاني على الدفعة). مشروع التخرج: 
+                                    "تطبيق للكشف عن سرطان الجلد" - تطبيق أندرويد متقدم لتشخيص حالات الجلد 
+                                    باستخدام معالجة الصور والذكاء الاصطناعي (التقدير: ممتاز).
+                                </p>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge">Computer Science</span>
+                                    <span class="badge">Mobile Development</span>
+                                    <span class="badge">AI & ML</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card loading h-100">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="mb-0"><i class="bi bi-award-fill me-2"></i>التدريب المهني</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-4">
+                                <h5 class="card-title">مسار تطوير .NET</h5>
+                                <h6 class="text-success">مبادرة بناة مصر الرقمية (DEBI)</h6>
+                                <p class="text-muted mb-2">
+                                    <i class="bi bi-calendar3 me-2"></i>أكتوبر 2023 – يونيو 2024
+                                </p>
+                                <p class="mb-3">
+                                    برنامج تدريبي مكثف يركز على تطوير التطبيقات باستخدام Microsoft .NET Framework 
+                                    وأفضل الممارسات في هندسة البرمجيات.
+                                </p>
+                                <div class="d-flex flex-wrap gap-2 mb-3">
+                                    <span class="badge">ASP.NET Core</span>
+                                    <span class="badge">Entity Framework</span>
+                                    <span class="badge">Web API</span>
+                                </div>
+                            </div>
+                            
+                            <hr>
+                            
+                            <div class="mb-4">
+                                <h5 class="card-title">دبلومة تطوير Frontend</h5>
+                                <h6 class="text-success">Route Academy</h6>
+                                <p class="text-muted mb-2">
+                                    <i class="bi bi-calendar3 me-2"></i>أبريل 2023 – أكتوبر 2023
+                                </p>
+                                <p class="mb-3">
+                                    دبلومة شاملة تغطي تقنيات Frontend الحديثة مع التركيز على 
+                                    الأداء وتجربة المستخدم.
+                                </p>
+                                <div class="d-flex flex-wrap gap-2 mb-3">
+                                    <span class="badge">Angular</span>
+                                    <span class="badge">React</span>
+                                    <span class="badge">TypeScript</span>
+                                </div>
+                            </div>
+                            
+                            <hr>
+                            
+                            <div>
+                                <h5 class="card-title">شهادة HCIA-AI</h5>
+                                <h6 class="text-success">Huawei Technologies</h6>
+                                <p class="mb-3">
+                                    شهادة متخصصة في تقنيات الذكاء الاصطناعي وتطبيقاتها في حلول المؤسسات.
+                                </p>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge">Artificial Intelligence</span>
+                                    <span class="badge">Machine Learning</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: var(--light-color);">
+        <div class="container">
+            <h2 class="section-title loading">تواصل معي</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card contact-card loading">
+                                <div class="card-body">
+                                    <i class="bi bi-envelope-fill display-4 text-primary"></i>
+                                    <h4 class="mt-3">البريد الإلكتروني</h4>
+                                    <a href="mailto:mahmoudeldeba@gmail.com" class="text-decoration-none">
+                                        mahmoudeldeba@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card contact-card loading">
+                                <div class="card-body">
+                                    <i class="bi bi-phone-fill display-4 text-primary"></i>
+                                    <h4 class="mt-3">الهاتف</h4>
+                                    <a href="tel:+201019672937" class="text-decoration-none">
+                                        +20 101 967 2937
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card contact-card loading">
+                                <div class="card-body">
+                                    <i class="bi bi-linkedin display-4 text-primary"></i>
+                                    <h4 class="mt-3">LinkedIn</h4>
+                                    <a href="https://linkedin.com/in/mahmoud-ahmed" target="_blank" class="text-decoration-none">
+                                        محمود أحمد
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card contact-card loading">
+                                <div class="card-body">
+                                    <i class="bi bi-github display-4 text-primary"></i>
+                                    <h4 class="mt-3">GitHub</h4>
+                                    <a href="https://github.com/MahmoudELdeba34" target="_blank" class="text-decoration-none">
+                                        MahmoudELdeba34
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-5">
+                        <div class="social-links loading">
+                            <a href="https://linkedin.com/in/mahmoud-ahmed" target="_blank" aria-label="LinkedIn">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/MahmoudELdeba34" target="_blank" aria-label="GitHub">
+                                <i class="bi bi-github"></i>
+                            </a>
+                            <a href="mailto:mahmoudeldeba@gmail.com" aria-label="البريد الإلكتروني">
+                                <i class="bi bi-envelope-fill"></i>
+                            </a>
+                            <a href="tel:+201019672937" aria-label="الهاتف">
+                                <i class="bi bi-phone-fill"></i>
+                            </a>
+                            <a href="https://wa.me/201019672937" target="_blank" aria-label="WhatsApp">
+                                <i class="bi bi-whatsapp"></i>
+                            </a>
+                        </div>
+                        <a href="mailto:mahmoudeldeba@gmail.com" class="btn btn-primary btn-lg loading">
+                            <i class="bi bi-send-fill me-2"></i>
+                            إرسال رسالة
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-2">&copy; 2025 محمود أحمد محمود. جميع الحقوق محفوظة.</p>
+                    <p class="mb-0 opacity-75">مطور Full Stack .NET | مطور CRM</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-2">آخر تحديث: أغسطس 2025</p>
+                    <p class="mb-0 opacity-75">صُمم بـ <i class="bi bi-heart-fill text-danger"></i> في مصر</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Theme management without localStorage
+        let currentTheme = 'light';
+        let currentLanguage = 'arabic';
+
+        const themeData = {
+            light: { button: 'lightTheme', attr: 'light' },
+            dark: { button: 'darkTheme', attr: 'dark' }
+        };
+
+        const languageData = {
+            arabic: { 
+                button: 'arabicLang', 
+                dir: 'rtl', 
+                lang: 'ar',
+                content: {
+                    brand: 'محمود أحمد',
+                    nav: ['عني', 'المهارات', 'الخبرة', 'المشاريع', 'التعليم', 'التواصل'],
+                    hero: {
+                        name: 'محمود أحمد محمود',
+                        title: 'مطور Full Stack .NET | مطور CRM',
+                        description: 'أطور أنظمة عالية الأداء وقابلة للتوسع باستخدام .NET و Angular و React وحلول CRM المتقدمة لتحقيق التحول الرقمي الفعال',
+                        contactBtn: 'تواصل معي',
+                        projectsBtn: 'مشاهدة الأعمال'
+                    }
+                }
+            },
+            english: { 
+                button: 'englishLang', 
+                dir: 'ltr', 
+                lang: 'en',
+                content: {
+                    brand: 'Mahmoud Ahmed',
+                    nav: ['About', 'Skills', 'Experience', 'Projects', 'Education', 'Contact'],
+                    hero: {
+                        name: 'Mahmoud Ahmed Mahmoud',
+                        title: 'Full Stack .NET Developer | CRM Developer',
+                        description: 'I build high-performance, scalable systems using .NET, Angular, React, and advanced CRM solutions to drive effective digital transformation',
+                        contactBtn: 'Contact Me',
+                        projectsBtn: 'View Projects'
+                    }
+                }
+            }
+        };
+
+        // Theme switching
+        function switchTheme(theme) {
+            currentTheme = theme;
+            document.documentElement.setAttribute('data-theme', theme);
+            
+            // Update active button
+            Object.values(themeData).forEach(data => {
+                document.getElementById(data.button).classList.remove('active');
+            });
+            document.getElementById(themeData[theme].button).classList.add('active');
+        }
+
+        // Language switching  
+        function switchLanguage(language) {
+            currentLanguage = language;
+            const langData = languageData[language];
+            
+            document.documentElement.setAttribute('dir', langData.dir);
+            document.documentElement.setAttribute('lang', langData.lang);
+            
+            // Update active button
+            Object.values(languageData).forEach(data => {
+                document.getElementById(data.button).classList.remove('active');
+            });
+            document.getElementById(langData.button).classList.add('active');
+            
+            // Update content
+            updateContent(langData.content);
+        }
+
+        function updateContent(content) {
+            // Update brand
+            document.querySelector('.navbar-brand').textContent = content.brand;
+            
+            // Update navigation
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach((link, index) => {
+                if (content.nav[index]) {
+                    link.textContent = content.nav[index];
+                }
+            });
+            
+            // Update hero section
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent) {
+                heroContent.querySelector('h1').textContent = content.hero.name;
+                heroContent.querySelector('h2').textContent = content.hero.title;
+                heroContent.querySelector('.lead').textContent = content.hero.description;
+                
+                const buttons = heroContent.querySelectorAll('.btn');
+                if (buttons[0]) buttons[0].querySelector('span, text()') && (buttons[0].innerHTML = `<i class="bi bi-envelope-fill"></i> ${content.hero.contactBtn}`);
+                if (buttons[1]) buttons[1].querySelector('span, text()') && (buttons[1].innerHTML = `<i class="bi bi-code-square"></i> ${content.hero.projectsBtn}`);
+            }
+        }
+
+        // Event listeners
+        document.getElementById('darkTheme').addEventListener('click', () => switchTheme('dark'));
+        document.getElementById('lightTheme').addEventListener('click', () => switchTheme('light'));
+        document.getElementById('arabicLang').addEventListener('click', () => switchLanguage('arabic'));
+        document.getElementById('englishLang').addEventListener('click', () => switchLanguage('english'));
+
+        // Back to top functionality
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        function toggleBackToTop() {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        }
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        window.addEventListener('scroll', toggleBackToTop);
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial theme
+            switchTheme('light');
+            
+            // Observe elements for animation
+            document.querySelectorAll('.loading').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Add active class to current nav item based on scroll
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            function updateActiveNav() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', updateActiveNav);
+            
+            // Navbar background on scroll
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.style.backgroundColor = 'rgba(26, 54, 93, 0.98)';
+                } else {
+                    navbar.style.backgroundColor = 'rgba(26, 54, 93, 0.95)';
+                }
+            });
+            
+            // Add loading animation delay
+            const loadingElements = document.querySelectorAll('.loading');
+            loadingElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+            
+            // Typing effect for hero title (optional enhancement)
+            const heroTitle = document.querySelector('.hero h1');
+            if (heroTitle) {
+                const originalText = heroTitle.textContent;
+                heroTitle.textContent = '';
+                let i = 0;
+                
+                function typeWriter() {
+                    if (i < originalText.length) {
+                        heroTitle.textContent += originalText.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 100);
+                    }
+                }
+                
+                // Start typing effect after a short delay
+                setTimeout(typeWriter, 1000);
+            }
+        });
+
+        // Form validation (if contact form is added later)
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        // Utility functions
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        // Performance optimization
+        const debouncedScroll = debounce(() => {
+            toggleBackToTop();
+            updateActiveNav();
+        }, 10);
+        
+        window.removeEventListener('scroll', toggleBackToTop);
+        window.removeEventListener('scroll', updateActiveNav);
+        window.addEventListener('scroll', debouncedScroll);
+        
+        // Preload critical resources
+        const preloadLink = document.createElement('link');
+        preloadLink.rel = 'preload';
+        preloadLink.as = 'font';
+        preloadLink.href = 'https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap';
+        preloadLink.crossOrigin = 'anonymous';
+        document.head.appendChild(preloadLink);
+        
+        // Error handling for external resources
+        window.addEventListener('error', (e) => {
+            if (e.target.tagName === 'LINK' || e.target.tagName === 'SCRIPT') {
+                console.warn('Failed to load external resource:', e.target.src || e.target.href);
+            }
+        });
+        
+        // Add focus management for accessibility
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                // Close any open modals or dropdowns
+                const openDropdowns = document.querySelectorAll('.dropdown-menu.show');
+                openDropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('show');
+                });
+            }
+        });
+        
+        // Progressive enhancement - add advanced features if supported
+        if ('IntersectionObserver' in window) {
+            // Lazy loading for images (when added)
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                            imageObserver.unobserve(img);
+                        }
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        // Service Worker registration (for PWA features)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // Service worker would be registered here for PWA functionality
+                console.log('Ready for PWA features');
+            });
+        }
+    </script>
+</body>
+</html>
