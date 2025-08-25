@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محمود أحمد | مطور Full Stack ومطور CRM</title>
-    <meta name="description" content="محمود أحمد - مطور Full Stack .NET ومطور CRM متخصص في Dynamics 365 وحلول المؤسسات">
+    <title>Mahmoud Ahmed | Full Stack Developer & CRM Developer</title>
+    <meta name="description" content="Mahmoud Ahmed - Full Stack .NET Developer and CRM Developer specializing in Dynamics 365 and enterprise solutions">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -66,6 +66,7 @@
             padding: 1rem 0;
             box-shadow: var(--shadow-md);
             transition: var(--transition);
+            margin-top: 60px; /* Space for the top controls */
         }
         
         .navbar-brand {
@@ -86,6 +87,74 @@
             color: white !important;
             background-color: rgba(255, 255, 255, 0.1);
             transform: translateY(-1px);
+        }
+
+        /* Top Controls */
+        .top-controls {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1030;
+            background: rgba(26, 54, 93, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .theme-switch, .language-switch {
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 0.25rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .theme-switch .btn, .language-switch .btn {
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            border: none;
+            background: transparent;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .theme-switch .btn.active, .language-switch .btn.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        /* Profile Image */
+        .profile-img-container {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 4px solid var(--secondary-color);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .profile-img-container:hover .profile-img {
+            transform: scale(1.05);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
 
         /* Hero Section */
@@ -192,8 +261,8 @@
             content: '';
             position: absolute;
             bottom: -1rem;
-            right: 50%;
-            transform: translateX(50%);
+            left: 50%;
+            transform: translateX(-50%);
             width: 80px;
             height: 4px;
             background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
@@ -241,20 +310,20 @@
 
         .skill-item i {
             color: var(--secondary-color);
-            margin-left: 1rem;
+            margin-right: 1rem;
             font-size: 1.1rem;
         }
 
         /* Timeline */
         .timeline {
             position: relative;
-            padding-right: 2rem;
+            padding-left: 2rem;
         }
         
         .timeline::before {
             content: '';
             position: absolute;
-            right: 0;
+            left: 0;
             top: 0;
             height: 100%;
             width: 2px;
@@ -264,13 +333,13 @@
         .timeline-item {
             position: relative;
             margin-bottom: 3rem;
-            padding-right: 2rem;
+            padding-left: 2rem;
         }
         
         .timeline-item::before {
             content: '';
             position: absolute;
-            right: -6px;
+            left: -6px;
             top: 0.5rem;
             width: 12px;
             height: 12px;
@@ -350,7 +419,7 @@
         .floating-btn {
             position: fixed;
             bottom: 2rem;
-            left: 2rem;
+            right: 2rem;
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -377,44 +446,6 @@
             transform: scale(1.1);
         }
 
-        .theme-switch, .language-switch {
-            position: fixed;
-            top: 120px;
-            left: 2rem;
-            z-index: 1000;
-            background: var(--card-bg);
-            border-radius: 25px;
-            padding: 0.25rem;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .language-switch {
-            top: 180px;
-        }
-
-        .theme-switch .btn, .language-switch .btn {
-            border-radius: 20px;
-            padding: 0.5rem 1rem;
-            font-size: 0.875rem;
-            border: none;
-            background: transparent;
-            color: var(--text-color);
-            transition: var(--transition);
-        }
-
-        .theme-switch .btn.active, .language-switch .btn.active {
-            background: var(--secondary-color);
-            color: white;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            padding: 3rem 0 2rem;
-            text-align: center;
-        }
-
         /* Animations */
         @keyframes fadeInUp {
             from { 
@@ -432,68 +463,72 @@
         }
 
         /* RTL/LTR Support */
-        [dir="ltr"] .section-title::after {
-            left: 50%;
-            transform: translateX(-50%);
+        [dir="rtl"] .section-title::after {
+            right: 50%;
+            left: auto;
+            transform: translateX(50%);
         }
         
-        [dir="ltr"] .timeline {
-            padding-left: 2rem;
-            padding-right: 0;
+        [dir="rtl"] .timeline {
+            padding-right: 2rem;
+            padding-left: 0;
         }
         
-        [dir="ltr"] .timeline::before {
-            left: 0;
-            right: auto;
+        [dir="rtl"] .timeline::before {
+            right: 0;
+            left: auto;
         }
         
-        [dir="ltr"] .timeline-item {
-            padding-left: 2rem;
-            padding-right: 0;
+        [dir="rtl"] .timeline-item {
+            padding-right: 2rem;
+            padding-left: 0;
         }
         
-        [dir="ltr"] .timeline-item::before {
-            left: -6px;
-            right: auto;
-        }
-
-        [dir="ltr"] .skill-item i {
-            margin-right: 1rem;
-            margin-left: 0;
-        }
-
-        [dir="ltr"] .floating-btn {
-            right: 2rem;
+        [dir="rtl"] .timeline-item::before {
+            right: -6px;
             left: auto;
         }
 
-        [dir="ltr"] .theme-switch, [dir="ltr"] .language-switch {
-            right: 2rem;
-            left: auto;
+        [dir="rtl"] .skill-item i {
+            margin-left: 1rem;
+            margin-right: 0;
+        }
+
+        [dir="rtl"] .floating-btn {
+            left: 2rem;
+            right: auto;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .top-controls {
+                justify-content: center;
+                padding: 0.5rem;
+            }
+            
             .theme-switch, .language-switch {
                 position: relative;
                 top: auto;
                 left: auto;
                 right: auto;
-                margin: 1rem auto;
-                display: block;
-                width: fit-content;
+                margin: 0.25rem;
+                display: inline-block;
+            }
+            
+            .navbar {
+                margin-top: 100px; /* More space for controls on mobile */
             }
             
             .floating-btn {
                 width: 50px;
                 height: 50px;
                 bottom: 1rem;
-                left: 1rem;
+                right: 1rem;
             }
             
-            [dir="ltr"] .floating-btn {
-                right: 1rem;
-                left: auto;
+            [dir="rtl"] .floating-btn {
+                left: 1rem;
+                right: auto;
             }
             
             .hero {
@@ -515,6 +550,11 @@
                 padding: 1rem;
                 margin-top: 1rem;
             }
+            
+            .profile-img-container {
+                width: 180px;
+                height: 180px;
+            }
         }
 
         /* Loading Animation */
@@ -530,61 +570,64 @@
     </style>
 </head>
 <body>
+    <!-- Top Controls (Theme & Language) -->
+    <div class="top-controls">
+        <div class="theme-switch">
+            <div class="btn-group">
+                <button class="btn" id="lightTheme" aria-label="Light theme">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+                <button class="btn" id="darkTheme" aria-label="Dark theme">
+                    <i class="bi bi-moon-fill"></i>
+                </button>
+            </div>
+        </div>
+        <div class="language-switch">
+            <div class="btn-group">
+                <button class="btn" id="arabicLang" aria-label="Arabic">
+                    AR
+                </button>
+                <button class="btn active" id="englishLang" aria-label="English">
+                    EN
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Floating Back to Top Button -->
-    <button class="floating-btn" id="backToTop" aria-label="العودة للأعلى">
+    <button class="floating-btn" id="backToTop" aria-label="Back to top">
         <i class="bi bi-arrow-up"></i>
     </button>
-
-    <!-- Theme Switch -->
-    <div class="theme-switch">
-        <div class="btn-group">
-            <button class="btn" id="lightTheme" aria-label="المظهر الفاتح">
-                <i class="bi bi-sun-fill"></i>
-            </button>
-            <button class="btn" id="darkTheme" aria-label="المظهر الداكن">
-                <i class="bi bi-moon-fill"></i>
-            </button>
-        </div>
-    </div>
-
-    <!-- Language Switch -->
-    <div class="language-switch">
-        <div class="btn-group">
-            <button class="btn active" id="arabicLang" aria-label="العربية">
-                AR
-            </button>
-            <button class="btn" id="englishLang" aria-label="English">
-                EN
-            </button>
-        </div>
-    </div>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">محمود أحمد</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="قائمة التنقل">
+            <a class="navbar-brand" href="#">Mahmoud Ahmed</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">عني</a>
+                        <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#skills">المهارات</a>
+                        <a class="nav-link" href="#skills">Skills</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#experience">الخبرة</a>
+                        <a class="nav-link" href="#advanced-skills">Advanced Skills</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects">المشاريع</a>
+                        <a class="nav-link" href="#experience">Experience</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#education">التعليم</a>
+                        <a class="nav-link" href="#projects">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">التواصل</a>
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -595,20 +638,20 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content text-center loading">
-                <h1>محمود أحمد محمود</h1>
-                <h2>مطور Full Stack .NET | مطور CRM</h2>
+                <h1>Mahmoud Ahmed Mahmoud</h1>
+                <h2>Full Stack .NET Developer | CRM Developer</h2>
                 <p class="lead">
-                    أطور أنظمة عالية الأداء وقابلة للتوسع باستخدام .NET و Angular و React 
-                    وحلول CRM المتقدمة لتحقيق التحول الرقمي الفعال
+                    I build high-performance, scalable systems using .NET, Angular, React 
+                    and advanced CRM solutions to drive effective digital transformation
                 </p>
                 <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
                     <a href="#contact" class="btn btn-primary">
                         <i class="bi bi-envelope-fill"></i>
-                        تواصل معي
+                        Contact Me
                     </a>
                     <a href="#projects" class="btn btn-outline-light">
                         <i class="bi bi-code-square"></i>
-                        مشاهدة الأعمال
+                        View Projects
                     </a>
                 </div>
             </div>
@@ -618,29 +661,33 @@
     <!-- About Section -->
     <section id="about">
         <div class="container">
-            <h2 class="section-title loading">عني</h2>
+            <h2 class="section-title loading">About Me</h2>
             <div class="row align-items-center">
                 <div class="col-lg-8 mx-auto">
+                    <div class="profile-img-container loading">
+                        <!-- Replace with your actual image URL -->
+                        <img src="https://placehold.co/400x400/1a365d/ffffff?text=MA" alt="Mahmoud Ahmed" class="profile-img">
+                    </div>
                     <div class="card loading">
                         <div class="card-body p-4">
                             <p class="lead text-center mb-4">
-                                مطور Full Stack متمرس مع شغف بالتقنيات المتقدمة وحلول المؤسسات المبتكرة
+                                Experienced Full Stack Developer with a passion for advanced technologies and innovative enterprise solutions
                             </p>
                             <p class="mb-4">
-                                متخصص في تطوير حلول CRM وتطبيقات المؤسسات باستخدام Microsoft .NET Framework وحزمة التقنيات الحديثة. 
-                                أمتلك خبرة عملية في Dynamics 365 و Salesforce مع قدرة على بناء أنظمة قابلة للتوسع 
-                                وعالية الأداء تلبي احتياجات الأعمال المعقدة.
+                                Specialized in developing CRM solutions and enterprise applications using Microsoft .NET Framework and modern technology stack. 
+                                I have practical experience in Dynamics 365 and Salesforce with the ability to build scalable 
+                                and high-performance systems that meet complex business needs.
                             </p>
                             <p class="mb-4">
-                                حصلت على تدريب متقدم في معهد تكنولوجيا المعلومات (ITI) ومبادرة بناة مصر الرقمية (DEBI)، 
-                                مما مكنني من اكتساب معرفة عميقة بأفضل الممارسات في هندسة البرمجيات والتطوير السحابي.
+                                I received advanced training at the Information Technology Institute (ITI) and the Digital Egypt Builders Initiative (DEBI), 
+                                which enabled me to gain deep knowledge of best practices in software engineering and cloud development.
                             </p>
                             
                             <div class="row mt-5">
                                 <div class="col-md-4 mb-3">
                                     <div class="d-flex align-items-center justify-content-center">
                                         <i class="bi bi-geo-alt-fill me-2 text-primary"></i>
-                                        <span>الزقازيق، الشرقية، مصر</span>
+                                        <span>Zagazig, Sharqia, Egypt</span>
                                     </div>
                                 </div>
                                 <div class="col-md-4 mb-3">
@@ -670,7 +717,7 @@
     <!-- Skills Section -->
     <section id="skills" style="background-color: var(--light-color);">
         <div class="container">
-            <h2 class="section-title loading">المهارات التقنية</h2>
+            <h2 class="section-title loading">Technical Skills</h2>
             <div class="row">
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card loading">
@@ -799,26 +846,158 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience">
+    <!-- Advanced Skills Section -->
+    <section id="advanced-skills">
         <div class="container">
-            <h2 class="section-title loading">الخبرة المهنية</h2>
+            <h2 class="section-title loading">Advanced Programming Skills</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card loading">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <i class="bi bi-puzzle-fill me-2 text-primary"></i>
+                                OOP & Design Patterns
+                            </h4>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Object-Oriented Programming</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Creational Patterns</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Structural Patterns</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Behavioral Patterns</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Architectural Patterns</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card loading">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <i class="bi bi-shield-check me-2 text-primary"></i>
+                                SOLID Principles
+                            </h4>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Single Responsibility</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Open/Closed Principle</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Liskov Substitution</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Interface Segregation</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Dependency Inversion</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card loading">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <i class="bi bi-cpu-fill me-2 text-primary"></i>
+                                Operating Systems
+                            </h4>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Process Management</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Memory Management</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>File Systems</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Concurrency & Threading</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>I/O Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card loading">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <i class="bi bi-diagram-3 me-2 text-primary"></i>
+                                System Design
+                            </h4>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>System Architecture</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Scalability Patterns</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Database Design</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>API Design</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Performance Optimization</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" style="background-color: var(--light-color);">
+        <div class="container">
+            <h2 class="section-title loading">Professional Experience</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="timeline">
                         <div class="timeline-item loading">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4>مهندس دعم فني</h4>
-                                    <h5><i class="bi bi-building me-2"></i>We Company, القاهرة</h5>
+                                    <h4>Technical Support Engineer</h4>
+                                    <h5><i class="bi bi-building me-2"></i>We Company, Cairo</h5>
                                     <p class="text-muted mb-3">
                                         <i class="bi bi-calendar3 me-2"></i>
-                                        فبراير 2024 – أكتوبر 2024
+                                        February 2024 – October 2024
                                     </p>
                                     <ul class="list-unstyled">
-                                        <li><i class="bi bi-arrow-left me-2 text-primary"></i>تقديم الدعم الفني المتخصص للعملاء</li>
-                                        <li><i class="bi bi-arrow-left me-2 text-primary"></i>حل المشاكل التقنية وتحسين الأداء</li>
-                                        <li><i class="bi bi-arrow-left me-2 text-primary"></i>التعاون مع فرق التطوير لتحسين المنتجات</li>
+                                        <li><i class="bi bi-arrow-right me-2 text-primary"></i>Providing specialized technical support to clients</li>
+                                        <li><i class="bi bi-arrow-right me-2 text-primary"></i>Solving technical problems and improving performance</li>
+                                        <li><i class="bi bi-arrow-right me-2 text-primary"></i>Collaborating with development teams to improve products</li>
                                     </ul>
                                 </div>
                             </div>
@@ -827,16 +1006,16 @@
                         <div class="timeline-item loading">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4>مرشد برمجي (هجين)</h4>
+                                    <h4>Software Mentor (Hybrid)</h4>
                                     <h5><i class="bi bi-mortarboard me-2"></i>Route Academy</h5>
                                     <p class="text-muted mb-3">
                                         <i class="bi bi-calendar3 me-2"></i>
-                                        نوفمبر 2023 – أبريل 2024
+                                        November 2023 – April 2024
                                     </p>
                                     <ul class="list-unstyled">
-                                        <li><i class="bi bi-arrow-left me-2 text-primary"></i>إرشاد الطلاب في تعلم تقنيات البرمجة الحديثة</li>
-                                        <li><i class="bi bi-arrow-left me-2 text-primary"></i>تدريس Frontend و Backend Development</li>
-                                        <li><i class="bi bi-arrow-left me-2 text-primary"></i>مراجعة المشاريع وتقديم التغذية الراجعة</li>
+                                        <li><i class="bi bi-arrow-right me-2 text-primary"></i>Guiding students in learning modern programming technologies</li>
+                                        <li><i class="bi bi-arrow-right me-2 text-primary"></i>Teaching Frontend and Backend Development</li>
+                                        <li><i class="bi bi-arrow-right me-2 text-primary"></i>Reviewing projects and providing feedback</li>
                                     </ul>
                                 </div>
                             </div>
@@ -848,26 +1027,26 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" style="background-color: var(--light-color);">
+    <section id="projects">
         <div class="container">
-            <h2 class="section-title loading">المشاريع المميزة</h2>
+            <h2 class="section-title loading">Featured Projects</h2>
             <div class="row">
                 <div class="col-lg-6 mb-4">
                     <div class="card loading h-100">
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-3">
                                 <i class="bi bi-box-seam me-3 text-primary" style="font-size: 2rem;"></i>
-                                <h4 class="card-title mb-0">نظام إدارة المخزون (CRM Module)</h4>
+                                <h4 class="card-title mb-0">Inventory Management System (CRM Module)</h4>
                             </div>
                             <p class="card-text mb-3">
-                                مشروع تدريبي متقدم في Link - موديل مخصص ضمن Dynamics 365 CRM لإدارة 
-                                مستويات المخزون والموردين وأوامر الشراء بطريقة متكاملة وذكية.
+                                Advanced training project at Link - Custom module within Dynamics 365 CRM for managing 
+                                inventory levels, suppliers, and purchase orders in an integrated and intelligent way.
                             </p>
                             <ul class="list-unstyled mb-4">
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>تطوير سير عمل متقدم باستخدام Power Platform</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>تنفيذ منطق الأعمال بـ C# Plugins و Custom Workflows</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>بناء APIs قوية باستخدام ASP.NET Core</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>تطوير واجهات تفاعلية بـ Angular</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Advanced workflow development using Power Platform</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Implementing business logic with C# Plugins and Custom Workflows</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Building robust APIs using ASP.NET Core</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Developing interactive interfaces with Angular</li>
                             </ul>
                             <div class="d-flex flex-wrap gap-2 mb-3">
                                 <span class="badge">Dynamics 365</span>
@@ -878,7 +1057,7 @@
                                 <span class="badge">Entity Framework</span>
                             </div>
                             <button class="btn btn-outline-primary btn-sm">
-                                <i class="bi bi-eye me-2"></i>عرض التفاصيل
+                                <i class="bi bi-eye me-2"></i>View Details
                             </button>
                         </div>
                     </div>
@@ -889,17 +1068,17 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-3">
                                 <i class="bi bi-shop me-3 text-primary" style="font-size: 2rem;"></i>
-                                <h4 class="card-title mb-0">متجر إلكتروني شامل (MEAN Stack)</h4>
+                                <h4 class="card-title mb-0">Complete E-commerce Store (MEAN Stack)</h4>
                             </div>
                             <p class="card-text mb-3">
-                                تطبيق متجر إلكتروني متكامل مع نظام إدارة المنتجات، سلة التسوق، 
-                                ومعالجة المدفوعات باستخدام MEAN Stack.
+                                A complete e-commerce application with product management system, shopping cart, 
+                                and payment processing using MEAN Stack.
                             </p>
                             <ul class="list-unstyled mb-4">
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>نظام مصادقة وترخيص آمن</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>إدارة المنتجات والفئات</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>تكامل مع بوابات الدفع</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>لوحة تحكم إدارية</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Secure authentication and authorization system</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Product and category management</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Integration with payment gateways</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Administrative dashboard</li>
                             </ul>
                             <div class="d-flex flex-wrap gap-2 mb-3">
                                 <span class="badge">MongoDB</span>
@@ -909,7 +1088,7 @@
                                 <span class="badge">JWT</span>
                             </div>
                             <button class="btn btn-outline-primary btn-sm">
-                                <i class="bi bi-github me-2"></i>عرض الكود
+                                <i class="bi bi-github me-2"></i>View Code
                             </button>
                         </div>
                     </div>
@@ -920,16 +1099,16 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-3">
                                 <i class="bi bi-clipboard-check me-3 text-primary" style="font-size: 2rem;"></i>
-                                <h4 class="card-title mb-0">ExamO - نظام الامتحانات الإلكتروني</h4>
+                                <h4 class="card-title mb-0">ExamO - Electronic Examination System</h4>
                             </div>
                             <p class="card-text mb-3">
-                                منصة امتحانات إلكترونية شاملة مع بيئة اختبار آمنة وأدوات تحليل النتائج المتقدمة.
+                                A comprehensive electronic exam platform with a secure testing environment and advanced results analysis tools.
                             </p>
                             <ul class="list-unstyled mb-4">
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>نظام أمان متقدم لمنع الغش</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>تقارير وتحليلات شاملة</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>واجهة سهلة للطلاب والمدرسين</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>تصحيح تلقائي ذكي</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Advanced security system to prevent cheating</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Comprehensive reports and analytics</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Easy interface for students and teachers</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Smart automatic correction</li>
                             </ul>
                             <div class="d-flex flex-wrap gap-2 mb-3">
                                 <span class="badge">ASP.NET Core</span>
@@ -938,7 +1117,7 @@
                                 <span class="badge">SQL Server</span>
                             </div>
                             <button class="btn btn-outline-primary btn-sm">
-                                <i class="bi bi-play-circle me-2"></i>عرض توضيحي
+                                <i class="bi bi-play-circle me-2"></i>View Demo
                             </button>
                         </div>
                     </div>
@@ -949,16 +1128,16 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-3">
                                 <i class="bi bi-cup-hot me-3 text-primary" style="font-size: 2rem;"></i>
-                                <h4 class="card-title mb-0">موقع مطعم Yummy</h4>
+                                <h4 class="card-title mb-0">Yummy Restaurant Website</h4>
                             </div>
                             <p class="card-text mb-3">
-                                منصة طلب طعام متجاوبة مع تصميم UI/UX حديث وتجربة مستخدم متميزة.
+                                Responsive food ordering platform with modern UI/UX design and excellent user experience.
                             </p>
                             <ul class="list-unstyled mb-4">
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>تصميم متجاوب وحديث</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>قائمة تفاعلية للوجبات</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>نظام حجز الطاولات</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>تحسين محركات البحث SEO</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Responsive and modern design</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Interactive meal menu</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Table reservation system</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>SEO optimization</li>
                             </ul>
                             <div class="d-flex flex-wrap gap-2 mb-3">
                                 <span class="badge">HTML5</span>
@@ -967,7 +1146,7 @@
                                 <span class="badge">Bootstrap</span>
                             </div>
                             <button class="btn btn-outline-primary btn-sm">
-                                <i class="bi bi-globe me-2"></i>زيارة الموقع
+                                <i class="bi bi-globe me-2"></i>Visit Website
                             </button>
                         </div>
                     </div>
@@ -977,25 +1156,25 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education">
+    <section id="education" style="background-color: var(--light-color);">
         <div class="container">
-            <h2 class="section-title loading">التعليم والشهادات</h2>
+            <h2 class="section-title loading">Education & Certifications</h2>
             <div class="row">
                 <div class="col-lg-6 mb-4">
                     <div class="card loading h-100">
                         <div class="card-header bg-primary text-white">
-                            <h3 class="mb-0"><i class="bi bi-mortarboard-fill me-2"></i>التعليم الأكاديمي</h3>
+                            <h3 class="mb-0"><i class="bi bi-mortarboard-fill me-2"></i>Academic Education</h3>
                         </div>
                         <div class="card-body">
                             <div class="mb-4">
-                                <h5 class="card-title">دبلومة التطوير المهني في CRM و BI</h5>
-                                <h6 class="text-primary">معهد تكنولوجيا المعلومات (ITI)</h6>
+                                <h5 class="card-title">Professional Diploma in CRM and BI</h5>
+                                <h6 class="text-primary">Information Technology Institute (ITI)</h6>
                                 <p class="text-muted mb-2">
-                                    <i class="bi bi-calendar3 me-2"></i>أكتوبر 2024 – أغسطس 2025
+                                    <i class="bi bi-calendar3 me-2"></i>October 2024 – August 2025
                                 </p>
                                 <p class="mb-3">
-                                    دبلومة متخصصة مدتها 9 أشهر تركز على تطوير حلول CRM وتقنيات Business Intelligence. 
-                                    يشمل التدريب ورش عمل عملية مع شركات رائدة مثل Link و Tech Lab London.
+                                    A specialized 9-month diploma focusing on CRM solutions development and Business Intelligence technologies. 
+                                    Includes practical workshops with leading companies like Link and Tech Lab London.
                                 </p>
                                 <div class="d-flex flex-wrap gap-2">
                                     <span class="badge">CRM Development</span>
@@ -1007,15 +1186,15 @@
                             <hr>
                             
                             <div>
-                                <h5 class="card-title">بكالوريوس علوم الحاسب</h5>
-                                <h6 class="text-primary">المعهد العالي للإدارة والمعلومات بالعبور</h6>
+                                <h5 class="card-title">Bachelor of Computer Science</h5>
+                                <h6 class="text-primary">Higher Institute of Management and Information in Obour</h6>
                                 <p class="text-muted mb-2">
-                                    <i class="bi bi-calendar3 me-2"></i>سبتمبر 2019 – يونيو 2023
+                                    <i class="bi bi-calendar3 me-2"></i>September 2019 – June 2023
                                 </p>
                                 <p class="mb-3">
-                                    تخرجت بتقدير جيد (الترتيب: الثاني على الدفعة). مشروع التخرج: 
-                                    "تطبيق للكشف عن سرطان الجلد" - تطبيق أندرويد متقدم لتشخيص حالات الجلد 
-                                    باستخدام معالجة الصور والذكاء الاصطناعي (التقدير: ممتاز).
+                                    Graduated with Good grade (Rank: Second in class). Graduation Project: 
+                                    "Skin Cancer Detection Application" - Advanced Android application for diagnosing skin conditions 
+                                    using image processing and artificial intelligence (Grade: Excellent).
                                 </p>
                                 <div class="d-flex flex-wrap gap-2">
                                     <span class="badge">Computer Science</span>
@@ -1030,18 +1209,18 @@
                 <div class="col-lg-6">
                     <div class="card loading h-100">
                         <div class="card-header bg-success text-white">
-                            <h3 class="mb-0"><i class="bi bi-award-fill me-2"></i>التدريب المهني</h3>
+                            <h3 class="mb-0"><i class="bi bi-award-fill me-2"></i>Professional Training</h3>
                         </div>
                         <div class="card-body">
                             <div class="mb-4">
-                                <h5 class="card-title">مسار تطوير .NET</h5>
-                                <h6 class="text-success">مبادرة بناة مصر الرقمية (DEBI)</h6>
+                                <h5 class="card-title">.NET Development Track</h5>
+                                <h6 class="text-success">Digital Egypt Builders Initiative (DEBI)</h6>
                                 <p class="text-muted mb-2">
-                                    <i class="bi bi-calendar3 me-2"></i>أكتوبر 2023 – يونيو 2024
+                                    <i class="bi bi-calendar3 me-2"></i>October 2023 – June 2024
                                 </p>
                                 <p class="mb-3">
-                                    برنامج تدريبي مكثف يركز على تطوير التطبيقات باستخدام Microsoft .NET Framework 
-                                    وأفضل الممارسات في هندسة البرمجيات.
+                                    Intensive training program focusing on application development using Microsoft .NET Framework 
+                                    and best practices in software engineering.
                                 </p>
                                 <div class="d-flex flex-wrap gap-2 mb-3">
                                     <span class="badge">ASP.NET Core</span>
@@ -1053,14 +1232,14 @@
                             <hr>
                             
                             <div class="mb-4">
-                                <h5 class="card-title">دبلومة تطوير Frontend</h5>
+                                <h5 class="card-title">Frontend Development Diploma</h5>
                                 <h6 class="text-success">Route Academy</h6>
                                 <p class="text-muted mb-2">
-                                    <i class="bi bi-calendar3 me-2"></i>أبريل 2023 – أكتوبر 2023
+                                    <i class="bi bi-calendar3 me-2"></i>April 2023 – October 2023
                                 </p>
                                 <p class="mb-3">
-                                    دبلومة شاملة تغطي تقنيات Frontend الحديثة مع التركيز على 
-                                    الأداء وتجربة المستخدم.
+                                    Comprehensive diploma covering modern Frontend technologies with focus on 
+                                    performance and user experience.
                                 </p>
                                 <div class="d-flex flex-wrap gap-2 mb-3">
                                     <span class="badge">Angular</span>
@@ -1072,10 +1251,10 @@
                             <hr>
                             
                             <div>
-                                <h5 class="card-title">شهادة HCIA-AI</h5>
+                                <h5 class="card-title">HCIA-AI Certification</h5>
                                 <h6 class="text-success">Huawei Technologies</h6>
                                 <p class="mb-3">
-                                    شهادة متخصصة في تقنيات الذكاء الاصطناعي وتطبيقاتها في حلول المؤسسات.
+                                    Specialized certification in artificial intelligence technologies and their applications in enterprise solutions.
                                 </p>
                                 <div class="d-flex flex-wrap gap-2">
                                     <span class="badge">Artificial Intelligence</span>
@@ -1090,9 +1269,9 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" style="background-color: var(--light-color);">
+    <section id="contact">
         <div class="container">
-            <h2 class="section-title loading">تواصل معي</h2>
+            <h2 class="section-title loading">Contact Me</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="row">
@@ -1100,7 +1279,7 @@
                             <div class="card contact-card loading">
                                 <div class="card-body">
                                     <i class="bi bi-envelope-fill display-4 text-primary"></i>
-                                    <h4 class="mt-3">البريد الإلكتروني</h4>
+                                    <h4 class="mt-3">Email</h4>
                                     <a href="mailto:mahmoudeldeba@gmail.com" class="text-decoration-none">
                                         mahmoudeldeba@gmail.com
                                     </a>
@@ -1111,7 +1290,7 @@
                             <div class="card contact-card loading">
                                 <div class="card-body">
                                     <i class="bi bi-phone-fill display-4 text-primary"></i>
-                                    <h4 class="mt-3">الهاتف</h4>
+                                    <h4 class="mt-3">Phone</h4>
                                     <a href="tel:+201019672937" class="text-decoration-none">
                                         +20 101 967 2937
                                     </a>
@@ -1124,7 +1303,7 @@
                                     <i class="bi bi-linkedin display-4 text-primary"></i>
                                     <h4 class="mt-3">LinkedIn</h4>
                                     <a href="https://linkedin.com/in/mahmoud-ahmed" target="_blank" class="text-decoration-none">
-                                        محمود أحمد
+                                        Mahmoud Ahmed
                                     </a>
                                 </div>
                             </div>
@@ -1150,10 +1329,10 @@
                             <a href="https://github.com/MahmoudELdeba34" target="_blank" aria-label="GitHub">
                                 <i class="bi bi-github"></i>
                             </a>
-                            <a href="mailto:mahmoudeldeba@gmail.com" aria-label="البريد الإلكتروني">
+                            <a href="mailto:mahmoudeldeba@gmail.com" aria-label="Email">
                                 <i class="bi bi-envelope-fill"></i>
                             </a>
-                            <a href="tel:+201019672937" aria-label="الهاتف">
+                            <a href="tel:+201019672937" aria-label="Phone">
                                 <i class="bi bi-phone-fill"></i>
                             </a>
                             <a href="https://wa.me/201019672937" target="_blank" aria-label="WhatsApp">
@@ -1162,7 +1341,7 @@
                         </div>
                         <a href="mailto:mahmoudeldeba@gmail.com" class="btn btn-primary btn-lg loading">
                             <i class="bi bi-send-fill me-2"></i>
-                            إرسال رسالة
+                            Send Message
                         </a>
                     </div>
                 </div>
@@ -1175,12 +1354,12 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-2">&copy; 2025 محمود أحمد محمود. جميع الحقوق محفوظة.</p>
-                    <p class="mb-0 opacity-75">مطور Full Stack .NET | مطور CRM</p>
+                    <p class="mb-2">&copy; 2025 Mahmoud Ahmed Mahmoud. All rights reserved.</p>
+                    <p class="mb-0 opacity-75">Full Stack .NET Developer | CRM Developer</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
-                    <p class="mb-2">آخر تحديث: أغسطس 2025</p>
-                    <p class="mb-0 opacity-75">صُمم بـ <i class="bi bi-heart-fill text-danger"></i> في مصر</p>
+                    <p class="mb-2">Last Updated: August 2025</p>
+                    <p class="mb-0 opacity-75">Designed with <i class="bi bi-heart-fill text-danger"></i> in Egypt</p>
                 </div>
             </div>
         </div>
@@ -1190,7 +1369,7 @@
     <script>
         // Theme management without localStorage
         let currentTheme = 'light';
-        let currentLanguage = 'arabic';
+        let currentLanguage = 'english';
 
         const themeData = {
             light: { button: 'lightTheme', attr: 'light' },
@@ -1204,7 +1383,7 @@
                 lang: 'ar',
                 content: {
                     brand: 'محمود أحمد',
-                    nav: ['عني', 'المهارات', 'الخبرة', 'المشاريع', 'التعليم', 'التواصل'],
+                    nav: ['عني', 'المهارات', 'المهارات المتقدمة', 'الخبرة', 'المشاريع', 'التعليم', 'التواصل'],
                     hero: {
                         name: 'محمود أحمد محمود',
                         title: 'مطور Full Stack .NET | مطور CRM',
@@ -1220,7 +1399,7 @@
                 lang: 'en',
                 content: {
                     brand: 'Mahmoud Ahmed',
-                    nav: ['About', 'Skills', 'Experience', 'Projects', 'Education', 'Contact'],
+                    nav: ['About', 'Skills', 'Advanced Skills', 'Experience', 'Projects', 'Education', 'Contact'],
                     hero: {
                         name: 'Mahmoud Ahmed Mahmoud',
                         title: 'Full Stack .NET Developer | CRM Developer',
@@ -1316,7 +1495,7 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+                    const offsetTop = target.offsetTop - 140; // Account for fixed navbar and top controls
                     window.scrollTo({
                         top: offsetTop,
                         behavior: 'smooth'
@@ -1341,8 +1520,9 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            // Set initial theme
+            // Set initial theme and language
             switchTheme('light');
+            switchLanguage('english');
             
             // Observe elements for animation
             document.querySelectorAll('.loading').forEach(el => {
@@ -1356,7 +1536,7 @@
             function updateActiveNav() {
                 let current = '';
                 sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 100;
+                    const sectionTop = section.offsetTop - 160;
                     const sectionHeight = section.clientHeight;
                     if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
                         current = section.getAttribute('id');
